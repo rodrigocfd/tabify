@@ -1,4 +1,0 @@
-fn main() {
-	bulcao()
-		fresco()
-}
