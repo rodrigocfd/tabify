@@ -21,7 +21,9 @@ var targetExtensions = []string{
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Fprintf(os.Stderr, "ERROR: Please inform the target directory.\n")
+		fmt.Fprintf(os.Stderr,
+			"ERROR: Please inform the target directory, like:\n"+
+				"    ./tabify ~/foo/my-project")
 		os.Exit(1)
 	}
 
