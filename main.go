@@ -41,9 +41,9 @@ func ProcessTargetDir(targetDir string) (int, int, error) {
 	countScanned := 0
 	countWritten := 0
 
-	err := filepath.Walk(targetDir,
-		func(path string, info os.FileInfo, err error) error {
-			if !info.IsDir() && HasValidExtension(path) {
+	err := filepath.WalkDir(targetDir,
+		func(path string, info os.DirEntry, err error) error {
+			if !info.IsDir() && HasValidExtension(path) && !strings.Contains(path, "node_modules") {
 				newLines, err := ProcessFile(path)
 				if err != nil {
 					return err
